@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct DictionaryApp: App {
+    @AppStorage("isOnBoarding") var isOnBoarding: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isOnBoarding {
+                OnboardingView()
+            } else {
+                ContentView()
+            }
         }
     }
 }
